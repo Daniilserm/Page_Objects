@@ -59,36 +59,36 @@ public class MoneyTransferTest {
         assertEquals(actualSecondCardBalance, expectedSecondCardBalance);
     }
 
-//    @Test
-//    void shouldNotTransferAmountExceedingBalanceFirstToSecond() {
-//        var firstCardInfo = getFirstCardInfo();
-//        var secondCardInfo = getSecondCardInfo();
-//        var firstCardBalance = dashboardPage.getCardBalance(0);
-//        var secondCardBalance = dashboardPage.getCardBalance(1);
-//        var amount = generateInvalidAmount(firstCardBalance);
-//        var transferPage = dashboardPage.selectCardTransfer(secondCardInfo);
-//        transferPage.makeTransfer(String.valueOf(amount), firstCardInfo);
-//        transferPage.findErrorMessage("Невозможен перевод суммы превыщающей баланс карты");
-//        var actualFirstCardBalance = dashboardPage.getCardBalance(0);
-//        var actualSecondCardBalance = dashboardPage.getCardBalance(1);
-//        assertEquals(actualFirstCardBalance, firstCardBalance);
-//        assertEquals(actualSecondCardBalance, secondCardBalance);
-//    }
-//
-//    @Test
-//    void shouldNotTransferAmountExceedingBalanceSecondToFirst() {
-//        var firstCardInfo = getFirstCardInfo();
-//        var secondCardInfo = getSecondCardInfo();
-//        var firstCardBalance = dashboardPage.getCardBalance(0);
-//        var secondCardBalance = dashboardPage.getCardBalance(1);
-//        var amount = generateInvalidAmount(secondCardBalance);
-//        var transferPage = dashboardPage.selectCardTransfer(firstCardInfo);
-//        transferPage.makeTransfer(String.valueOf(amount), secondCardInfo);
-//        transferPage.findErrorMessage("Невозможен перевод суммы превыщающей баланс карты");
-//        var actualFirstCardBalance = dashboardPage.getCardBalance(0);
-//        var actualSecondCardBalance = dashboardPage.getCardBalance(1);
-//        assertEquals(actualFirstCardBalance, firstCardBalance);
-//        assertEquals(actualSecondCardBalance, secondCardBalance);
-//    }
+    @Test
+    void shouldNotTransferAmountExceedingBalanceFirstToSecond() {
+        var firstCardInfo = getFirstCardInfo();
+        var secondCardInfo = getSecondCardInfo();
+        var firstCardBalance = dashboardPage.getCardBalance(0);
+        var secondCardBalance = dashboardPage.getCardBalance(1);
+        var amount = generateInvalidAmount(firstCardBalance);
+        var transferPage = dashboardPage.selectCardTransfer(secondCardInfo);
+        transferPage.makeTransfer(String.valueOf(amount), firstCardInfo);
+        transferPage.findErrorMessage("Невозможен перевод суммы превыщающей баланс карты");
+        var actualFirstCardBalance = dashboardPage.getCardBalance(0);
+        var actualSecondCardBalance = dashboardPage.getCardBalance(1);
+        assertEquals(actualFirstCardBalance, firstCardBalance);
+        assertEquals(actualSecondCardBalance, secondCardBalance);
+    }
+
+    @Test
+    void shouldNotTransferAmountExceedingBalanceSecondToFirst() {
+        var firstCardInfo = getFirstCardInfo();
+        var secondCardInfo = getSecondCardInfo();
+        var firstCardBalance = dashboardPage.getCardBalance(0);
+        var secondCardBalance = dashboardPage.getCardBalance(1);
+        var amount = generateInvalidAmount(secondCardBalance);
+        var transferPage = dashboardPage.selectCardTransfer(firstCardInfo);
+        transferPage.makeTransfer(String.valueOf(amount), secondCardInfo);
+        transferPage.findErrorMessage("Невозможен перевод суммы превыщающей баланс карты");
+        var actualFirstCardBalance = dashboardPage.getCardBalance(0);
+        var actualSecondCardBalance = dashboardPage.getCardBalance(1);
+        assertEquals(actualFirstCardBalance, firstCardBalance);
+        assertEquals(actualSecondCardBalance, secondCardBalance);
+    }
 
 }
